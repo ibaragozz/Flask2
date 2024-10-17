@@ -4,32 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <title>Простой блог</title>
+    <title>Анкета</title>
 </head>
 <body>
 
     <div class="container">
-        <h1>Простой блог</h1>
+        <h1 class="mt-5">Хотите полететь на Марс??!! Легко! Заполните анкету!</h1>
 
         <form method="POST" action="/">
             <div class="form-group">
-                <label for="title">Заголовок:</label>
-                <input type="text" class="form-control" id="title" name="title" required>
+                <label for="name">Введите Ваше имя:</label>
+                <input type="text" class="form-control" id="name" name="name" required>
             </div>
             <div class="form-group">
-                <label for="content">Текст поста:</label>
-                <textarea class="form-control" id="content" name="content" rows="3" required></textarea>
+                <label for="city">Где Вы проживаете:</label>
+                <input type="text" class="form-control" id="city" name="city" required>
+            </div>
+            <div class="form-group">
+                <label for="hobby">Расскажите о своих хобби:</label>
+                <textarea class="form-control" id="hobby" name="hobby" rows="3" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="age">Сколько Вам лет:</label>
+                <input type="number" class="form-control" id="age" name="age" required>
             </div>
             <button type="submit" class="btn btn-primary">Отправить пост</button>
         </form>
         <hr>
 
-        <h2>Посты</h2>
+        <h2 class="mt-4">Посты</h2>
         {% for post in posts %}
-
-        <div class="post">
-            <h4>{{ post.title }}</h4>
-            <p>{{ post.content }}</p>
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">{{ post.name }}</h5>
+                <p class="card-text">Город: {{ post.city }}</p>
+                <p class="card-text">Возраст: {{ post.age }}</p>
+                <p class="card-text">Хобби: {{ post.hobby }}</p>
+                
+            </div>
         </div>
         {% endfor %}
     </div>
@@ -38,30 +50,3 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-<!--<h1>Контактная форма</h1>-->
-<!--<form action="/test" method="post">-->
-<!--    <label for ='name'> Имя: </label>-->
-<!--    <input type='text' id="name" name="name" required>-->
-<!--    <br>-->
-<!--    <br>-->
-
-<!--    <label for ='email'> Email: </label>-->
-<!--    <input type='email' id="email" name="email" required>-->
-<!--    <br>-->
-<!--    <br>-->
-
-<!--    <button type="submit">Отправить</button>-->
-
-<!--</form>-->
-
-<!--<textarea></textarea>-->
-
